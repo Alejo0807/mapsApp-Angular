@@ -1,0 +1,31 @@
+
+<div #screenMap class="map-container">
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <label class="form-label">
+            Zoom: {{ zoomLevel | number:'2.0-2'}}
+            Lng,Lat: 
+            [{{this.center[0] | number:'2.0-4'}}
+            , {{this.center[1] | number:'2.0-4'}}]
+        </label>
+        <input type="range" 
+            class="form-range"
+            [value]="zoomLevel"
+            min="0"
+            max="18"
+            (input)="zoomChanged( zoomInput.value )"
+            #zoomInput>
+    </div>
+
+    <div class="col-12">
+        <button class="btn btn-primary"
+                (click)="zoom('out')">-</button>
+        <button class="btn btn-primary float-end"
+                (click)="zoom('in')">+</button>
+    </div>
+
+</div>
+
+
